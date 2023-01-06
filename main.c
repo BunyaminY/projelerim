@@ -1,31 +1,38 @@
 #include <stdio.h>
 
-int main (){
-
-    int kareninBirKenarı;
+int main() {
     
-    printf("Karenin Bir Kenarını cm Cinsinden Giriniz:\n");
+    int sayı1,sayı2,büyük,küçük,kalan;
+        
+    do{
+        printf("Ebobunu bulmak istediğiniz 2 adet pozitif tam sayı giriniz...\n");
+        scanf("%d%d",&sayı1,&sayı2);
+        
+    }while( sayı1<=0 || sayı2<=0);
     
-    scanf("%d",&kareninBirKenarı);
-    printf("Karenin alanı: %d cm²\n",kareninBirKenarı*kareninBirKenarı);
-    printf("karenin çevresi:%d cm\n",kareninBirKenarı*4);
+    if (sayı1>sayı2){
+        büyük=sayı2;
+        küçük=sayı1;
+    }
+    else{
+        büyük=sayı2;
+        küçük=sayı1;
+    }
+    kalan=büyük % küçük;
+    while (kalan !=0) {
+        if(kalan>= küçük){
+            büyük=kalan;
+        }
+        else{
+            büyük=küçük;
+            küçük=kalan;
+        }
+        kalan=büyük%küçük;
+    }
     
-    int dikdörtgenKısaKenar, dikdörtgenUzunKenar;
-    printf("Dikdörtgenin Kısa Kenarı Giriniz....\n");
-    scanf("%d",&dikdörtgenKısaKenar);
-    printf("Dikdörtgenin Uzun Kenarı Giriniz....\n");
-    scanf("%d",&dikdörtgenUzunKenar);
-    printf("Dikdörtgenin Alanı %d\n", dikdörtgenKısaKenar*dikdörtgenUzunKenar);
-    printf("Dikdörgenin Çevresi %d\n",dikdörtgenKısaKenar+dikdörtgenKısaKenar+dikdörtgenUzunKenar+dikdörtgenUzunKenar);
     
-    
-    
-    
-    
-   
+    printf("Ebob (%d,%d)=%d\n",sayı1,sayı2,küçük);
+ 
     return 0;
-    
-    
-    
-    
 }
+ 
